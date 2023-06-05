@@ -18,7 +18,7 @@ class Wp_Inbody_404_Urls_Finder {
 	 *
 	 * @return array
 	 */
-	public function find_urls_in_content( string $content ): array {
+	public function find_urls_in_content( string $content ) {
 		$pattern = '/(https?:\/\/[^\s"\'<>]+)/';
 		preg_match_all( $pattern, $content, $matches );
 
