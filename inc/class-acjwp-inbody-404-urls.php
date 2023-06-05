@@ -3,13 +3,13 @@
  * Find all the 404 URI's present in the POST content.
  *
  * @package WordPress
- * @subpackage Wp_Inbody_404
+ * @subpackage Acjwp_Inbody_404
  */
 
 /**
  * Class Not Found Url.
  */
-class Wp_Inbody_404_Urls_Finder {
+class Acjwp_Inbody_404_Urls_Finder {
 
 	/**
 	 * Fine all the url in given string.

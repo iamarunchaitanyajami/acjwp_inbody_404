@@ -1,4 +1,4 @@
-=== WP INBODY 404's CLI ===
+=== ACJWP INBODY 404's CLI ===
 
 Donate link: https://iamarunchaitanyajami.com
 

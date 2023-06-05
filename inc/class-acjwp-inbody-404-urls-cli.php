@@ -3,13 +3,13 @@
  * WP-CLI commands for 404-URL's CHECKING.
  *
  * @package WordPress
- * @subpackage Wp_Inbody_404
+ * @subpackage Acjwp_Inbody_404
  */
 
 /**
  * Various commands relating to 404-URL's CHECKING.
  */
-class Wp_Inbody_404_Urls_Cli {
+class Acjwp_Inbody_404_Urls_Cli {
 
 	/**
 	 * Find all the 404-URL's in body content.
@@ -64,7 +64,7 @@ class Wp_Inbody_404_Urls_Cli {
 		}
 
 		$not_found_url_posts = [];
-		$not_found_url       = new Wp_Inbody_404_Urls_Finder();
+		$not_found_url       = new Acjwp_Inbody_404_Urls_Finder();
 
 		$start_date = $between[0];
 		while ( $start_date <= $between[1] ) {
@@ -135,4 +135,4 @@ class Wp_Inbody_404_Urls_Cli {
 	}
 }
 
-WP_CLI::add_command( 'inbody404', 'Wp_Inbody_404_Urls_Cli' );
+WP_CLI::add_command( 'inbody404', 'Acjwp_Inbody_404_Urls_Cli' );
