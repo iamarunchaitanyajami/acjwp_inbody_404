@@ -125,14 +125,15 @@ class Acjwp_Inbody_404_Urls_Finder {
 	 * @return bool
 	 */
 	public function is_404( string $url ) {
-		if ( ! str_contains( $url, site_url() ) ) {
+		$url = apply_filters( 'acjwp_not_found_urls_finder_verify_url', true, $url );
+		if ( ! $url ) {
 			return false;
 		}
 
 		$response = wp_safe_remote_get( $url );
 		$status   = wp_remote_retrieve_response_code( $response );
 
-		$allowed_status = apply_filters( 'vip_wp_not_found_urls_finder_allowed_status', [ 200 ], $status );
+		$allowed_status = apply_filters( 'acjwp_not_found_urls_finder_allowed_status', [ 200 ], $status );
 
 		return ! in_array( $status, $allowed_status, true );
 	}
