@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Load required files.
  */
-require_once __DIR__ . '/not-found-urls/class-wp-inbody-404-urls.php';
+require_once __DIR__ . '/inc/class-wp-inbody-404-urls.php';
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
-	require_once __DIR__ . '/not-found-urls/class-wp-inbody-404-urls-cli.php';
+	require_once __DIR__ . '/inc/class-wp-inbody-404-urls-cli.php';
 }
