@@ -35,12 +35,17 @@ class Wp_Inbody_404_Urls_Finder {
 	 *
 	 * @return array
 	 */
-	public function posts( array $post_types = [ 'post', 'page' ], int $post_page_page = 1000, array $post_status = [ 'publish' ], array $date_between = [] ): array {
+	public function posts(
+		array $post_types = [ 'post', 'page' ],
+		int $post_page_page = 1000,
+		array $post_status = [ 'publish' ],
+		array $date_between = []
+	) {
 		global $wpdb;
 
 		$between = [
 			'2001-02-01',
-			date('Y-m-d'),
+			date( 'Y-m-d' ),
 		];
 
 		if ( ! empty( $date_between ) ) {
@@ -82,7 +87,7 @@ class Wp_Inbody_404_Urls_Finder {
 	 *
 	 * @return array
 	 */
-	public function get_all_404s( array $args = [] ): array {
+	public function get_all_404s( array $args = [] ) {
 		$default_args = [
 			'post_type'      => [ 'post', 'page' ],
 			'post_page_page' => 1000,
@@ -119,7 +124,7 @@ class Wp_Inbody_404_Urls_Finder {
 	 *
 	 * @return bool
 	 */
-	public function is_404( string $url ): bool {
+	public function is_404( string $url ) {
 		if ( ! str_contains( $url, site_url() ) ) {
 			return false;
 		}
