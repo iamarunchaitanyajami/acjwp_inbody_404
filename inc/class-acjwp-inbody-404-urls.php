@@ -125,8 +125,8 @@ class Acjwp_Inbody_404_Urls_Finder {
 	 * @return bool
 	 */
 	public function is_404( string $url ) {
-		$url = apply_filters( 'acjwp_not_found_urls_finder_verify_url', true, $url );
-		if ( ! $url ) {
+		$verify_url = apply_filters( 'acjwp_not_found_urls_finder_verify_url', true, $url );
+		if ( ! $verify_url ) {
 			return false;
 		}
 
