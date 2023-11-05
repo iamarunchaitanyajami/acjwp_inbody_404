@@ -4,7 +4,7 @@
  * Plugin Name:       ACJWP INBODY 404's CLI
  * Plugin URI:        https://iamarunchaitanyajami.com
  * Description:       This plugin is useful to run custom cli that run a query on the posts table to find 404 in the body of each post type.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Arun Chaitanya Jami
  * Author URI:        https://github.com/iamarunchaitanyajami
  * License:           GPL-2.0+
