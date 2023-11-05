@@ -6,10 +6,21 @@
  * @subpackage Acjwp_Inbody_404
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * If ACJWP_Inbody_404_Urls_Cli class exists make this file not work.
+ */
+if( class_exists( 'ACJWP_Inbody_404_Urls_Cli' ) ){
+	exit;
+}
+
 /**
  * Various commands relating to 404-URL's CHECKING.
  */
-class Acjwp_Inbody_404_Urls_Cli {
+class ACJWP_Inbody_404_Urls_Cli {
 
 	/**
 	 * Find all the 404-URL's in body content.
@@ -64,7 +75,7 @@ class Acjwp_Inbody_404_Urls_Cli {
 		}
 
 		$not_found_url_posts = [];
-		$not_found_url       = new Acjwp_Inbody_404_Urls_Finder();
+		$not_found_url       = new ACJWP_Inbody_404_Urls_Finder();
 
 		$start_date = $between[0];
 		while ( $start_date <= $between[1] ) {

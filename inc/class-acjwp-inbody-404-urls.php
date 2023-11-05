@@ -6,10 +6,21 @@
  * @subpackage Acjwp_Inbody_404
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * If ACJWP_Inbody_404_Urls_Finder class exists make this file not work.
+ */
+if( class_exists( 'ACJWP_Inbody_404_Urls_Finder' ) ){
+	exit;
+}
+
 /**
  * Class Not Found Url.
  */
-class Acjwp_Inbody_404_Urls_Finder {
+class ACJWP_Inbody_404_Urls_Finder {
 
 	/**
 	 * Fine all the url in given string.
@@ -58,18 +69,27 @@ class Acjwp_Inbody_404_Urls_Finder {
 		$post_types_string  = "'" . implode( "', '", $post_types ) . "'";
 		$post_status_string = "'" . implode( "', '", $post_status ) . "'";
 		$offset             = ( $paged - 1 ) * $post_page_page;
-		$query              = sprintf(
-			"SELECT ID, post_type, post_status, post_content FROM %1s WHERE post_type IN (%2s) AND post_status IN (%3s) AND post_content REGEXP '(http|https)://[^$.?#].[^\s]*' AND post_date >= '%4s' AND post_date <= '%5s' LIMIT %d OFFSET %d",
-			$wpdb->posts,
-			$post_types_string,
-			$post_status_string,
-			$between[0],
-			$between[1],
-			$post_page_page,
-			$offset
+		$query              = $wpdb->prepare(
+			"SELECT ID, post_type, post_status, post_content 
+			FROM %1s 
+			WHERE post_type IN (%2s) 
+			  AND post_status IN (%3s) 
+			  AND post_content REGEXP '(http|https)://[^$.?#].[^\s]*' 
+			  AND post_date >= '%4s' 
+			  AND post_date <= '%5s' 
+			  LIMIT %d OFFSET %d",
+			[
+				$wpdb->posts,
+				$post_types_string,
+				$post_status_string,
+				$between[0],
+				$between[1],
+				$post_page_page,
+				$offset
+			]
 		);
-		$results            = $wpdb->get_results( $query );
 
+		$results = $wpdb->get_results( $query );
 		foreach ( $results as $found_posts ) {
 			$found_urls = $this->find_urls_in_content( $found_posts->post_content );
 			if ( ! empty( $found_urls ) ) {
@@ -120,7 +140,7 @@ class Acjwp_Inbody_404_Urls_Finder {
 	/**
 	 * Is a give url findable.
 	 *
-	 * @param string $url Url to find the status
+	 * @param string $url Url to find the status.
 	 *
 	 * @return bool
 	 */
