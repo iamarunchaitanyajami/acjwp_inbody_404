@@ -11,13 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * If ACJWP_Inbody_404_Urls_Cli class exists make this file not work.
- */
-if( class_exists( 'ACJWP_Inbody_404_Urls_Cli' ) ){
-	exit;
-}
-
-/**
  * Various commands relating to 404-URL's CHECKING.
  */
 class ACJWP_Inbody_404_Urls_Cli {
