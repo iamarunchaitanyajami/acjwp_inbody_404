@@ -2,11 +2,11 @@
 
 Donate link: https://iamarunchaitanyajami.com
 
-**Tags**: comments, spam
+**Tags**: CLI
 
 **Requires at least**: 3.0.1
 
-**Tested up to**: 6.1
+**Tested up to**: 6.4
 
 **License:** GPLv2 or later
 
